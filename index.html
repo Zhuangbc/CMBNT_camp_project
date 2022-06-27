@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" style="font-size:100px;">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 <style type="text/css">
 <!--
-* {
+    * {
     margin: 0;
     padding: 0;
+}
+
+footer {
+    display: none;
 }
 
 body {
@@ -14,203 +18,230 @@ body {
 }
 
 .header-banner {
-        width: 100%;
+    width: 100%;
 }
 
 .header h2 {
-        height: 110px;
-        text-align: center;
-        line-height: 110px;
-        font-size: 37px;
+    height: 1.1rem;
+    text-align: center;
+    line-height: 1.1rem;
+    font-size: 0.37rem;
+}
+
+.navi {
+    box-shadow: 0.02rem 0.02rem 0.02rem grey;
+    border-bottom: 0.02rem solid white; 
+}
+
+ul {
+    display: flex;
+    position: initial;
+    align-items: center;
+    margin-bottom: 0.2rem;
+}
+
+li {
+    position: relative;
+    padding: 0rem 0.33rem;
+    font-size: 0.28rem;
+    color: rgba(0, 0, 0, 0.85);
+    list-style: none;
+    white-space:nowrap; 
+}
+
+li::after{
+    content: '';
+    position: absolute;
+    bottom: -0.22rem;
+    width: 0;
+    height: 0.03rem;
+    background-color: blue;
+    transition: .5s all linear;
+}
+
+li:hover{
+    color: blue;
+}
+
+li:hover::after{
+    width: 100%;
+}
+
+li::after{
+    left: 100%;     /*选中项上一个下划线收回的方向，从左往右收线*/
+}
+
+li:hover::after{
+    left: 0;      /*选中项下划线出线的方向，从左往右出线*/
+}
+
+li:hover ~ li::after {
+    left: 0;    /*选中项下一个下划线出线的方向，从左往右收线*/
 }
 
 .content {
-    padding-bottom: 200px;
-}
-
-.content .content-nav {
-    padding: 48px;
-}
-
-.content .content-nav .item {
-    display: flex;
-    justify-content: space-between;
-}
-
-.content .content-nav .item+.item {
-    margin-top: 48px;
-}
-
-.content .content-nav .item .unit {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.content .content-nav .item span {
-    margin-top: 20px;
-    color: rgba(0, 0, 0, 0.65);
-    text-align: center;
-    font-size: 28px;
+    padding-top: 0.25rem;
 }
 
 .content .content-goods {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
 }
 
 .content .content-goods .item {
     display: flex;
-    justify-content: space-between;
 }
 
-.content .content-goods .item .unit:first-child {
-    margin-bottom: 22px;
-}
-
-.content .content-goods .item .unit {
-    width: 324px;
-    height: 432px;
+.content .content-goods .item {
+    width: 7rem;
+    height: 2rem;
     box-sizing: border-box;
     background: #FFFFFF;
-    border-radius: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 24px;
+    border-radius: 0.16rem;
+    padding: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
-.content .content-goods .item .unit img {
-    display: block;
+.content .content-goods .item .pic {
+    display: flex;
 }
 
-.content .content-goods .item .unit p:first-of-type {
-    margin-top: 24px;
+.content .content-goods .item .pic {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.25rem;
+}
+
+.content .content-goods .item .text {
+    width: 2.5rem;
+    height: 1.5rem;
+    display: left;
+    font-size: 0.28rem;
+    text-align: left;
+}
+
+.content .content-goods .item p:first-of-type {
+    margin-top: 0.36rem;
     color: rgba(0, 0, 0, 0.85);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.content .content-goods .item .unit p:last-of-type {
-    margin-top: 12px;
+.content .content-goods .item p:last-of-type {
+    margin-top: 0.12rem;
     color: #3642FF;
 }
 
-.content .content-goods .item .unit p {
-    font-size: 28px;
+/* 如果设备像素大于等于2，则用2倍图 */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min--moz-device-pixel-ratio: 2) {
+    body {
+        background: url(./imgs/blurcolor@2x.png) no-repeat no-repeat;
+    }
 }
 
-.footer {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    height: 100px;
-    background: #FFFFFF;
-    box-shadow: 0px -1px 8px 0px rgba(0, 0, 0, 0.06);
-    display: flex;
-    justify-content: space-around;
+/* 如果设备像素大于等于3，则用3倍图 */
+@media screen and (-webkit-min-device-pixel-ratio: 3),
+screen and (min--moz-device-pixel-ratio: 3) {
+    body {
+        background: url(./imgs/blurcolor@3x.png) no-repeat no-repeat;
+    }
 }
 
-.footer div {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center
+@media screen and(-webkit-min-device-pixel-ratio：2),
+screen and (min--moz-device-pixel-ratio: 2) {
+    .content .content-goods .item .unit {
+        border: 0.5px solid rgba(0, 0, 0, 0.1);
+    }
 }
 
-.footer div p {
-    text-align: center;
-    font-size: 24px;
-    color: #000000;
-}
-
-.footer div.active p {
-    color: #3642FF;
+@media screen and(-webkit-min-device-pixel-ratio: 3),
+screen and (min--moz-device-pixel-ratio: 3) {
+    .content .content-goods .item .unit {
+        border: 0.3333px solid rgba(0, 0, 0, 0.1);
+    }
 }
 -->
 </style>
 <header class="header">
-    <h2>信用卡积分兑换商城</h2>
-    <img class="header-banner" src="./imgs/banner@2x.png">
-</header>
-<main class="content">
-    <div class="content-nav">
-        <div class="item">
-            <div class="unit">
-                <img src="./imgs/编组@2x.png">
-                <span>本卡专区</span>
-            </div>
-            <div class="unit">
-                <img src="./imgs/编组@2x(2).png">
-                <span>汽车用品</span>
-            </div>
-            <div class="unit">
-                <img src="./imgs/编组@2x(4).png">
-                <span>潮流数码</span>
-            </div>
-            <div class="unit">
-                <img src="./imgs/编组@2x(6).png">
-                <span>户外运动</span>
-            </div>
-        </div>
-        <div class="item">
-            <div class="unit">
-                <img src="./imgs/编组@2x(1).png">
-                <span>箱包饰品</span>
-            </div>
-            <div class="unit">
-                <img src="./imgs/编组@2x(3).png">
-                <span>摄影器材</span>
-            </div>
-            <div class="unit">
-                <img src="./imgs/编组@2x(5).png">
-                <span>电子礼券</span>
-            </div>
-            <div class="unit">
-                <img src="./imgs/编组@2x(7).png">
-                <span>全部商品</span>
-            </div>
-        </div>
+    <h2> 我的订单 </h2>
+    <div class="navi">
+    <ul>
+        <li> 全部 </li>
+        <li> 待付款 </li>
+        <li> 待发货 </li>
+        <li> 已完成 </li>
+        <li> 退款/售后 </li>
+    </ul>
     </div>
+</header>
+<body>
+<main class="content">
     <div class="content-goods">
         <div class="item">
-            <div class="unit">
-                <img src="./imgs/商品/单品-图片1@2x.png">
+            <div class="pic">
+                <img src="./imgs/backz@2x.png" srcset="./imgs/backz@2x.png 2x,./imgs/backz@3x.png 3x">
+            </div>
+            <div class="text">
                 <p>Galaxy Z系列 5折券</p>
                 <p>50积分</p>
             </div>
-            <div class="unit">
-                <img src="./imgs/商品/单品-图片1@2x(2).png">
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="./imgs/phone@2x.png" srcset="./imgs/phone@2x.png 2x,./imgs/phone@3x.png 3x">
+            </div>
+            <div class="text">
                 <p>Galaxy Note20系列</p>
-                <p>10000积分</p>
+                <p>50积分</p>
             </div>
         </div>
         <div class="item">
-            <div class="unit">
-                <img src="./imgs/商品/单品-图片1@2x(1).png">
-                <p>Galaxy Note10系列</p>
-                <p>80积分</p>
+            <div class="pic">
+                <img src="./imgs/backz@2x.png" srcset="./imgs/backz@2x.png 2x,./imgs/backz@3x.png 3x">
             </div>
-            <div class="unit">
-                <img src="./imgs/商品/单品-图片1@2x(3).png">
-                <p>Galaxy Note20系列</p>
+            <div class="text">
+                <p>Galaxy Z系列 5折券</p>
+                <p>50积分</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="./imgs/backz@2x.png" srcset="./imgs/backz@2x.png 2x,./imgs/backz@3x.png 3x">
+            </div>
+            <div class="text">
+                <p>Galaxy Z系列 5折券</p>
+                <p>50积分</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="./imgs/backz@2x.png" srcset="./imgs/backz@2x.png 2x,./imgs/backz@3x.png 3x">
+            </div>
+            <div class="text">
+                <p>Galaxy Z系列 5折券</p>
                 <p>50积分</p>
             </div>
         </div>
     </div>
 </main>
-<footer class="footer">
-    <div class="active">
-        <img src="./imgs/Icon-home@2x.png">
-        <p>首页</p>
-    </div>
-    <div>
-        <img src="./imgs/Icon-other@2x.png">
-        <p>分类</p>
-    </div>
-    <div>
-        <img src="./imgs/Icon-other@2x(1).png">
-        <p>订单</p>
-    </div>
-    <div>
-        <img src="./imgs/Icon-other@2x(2).png">
-        <p>我的</p>
-    </div>
-</footer>
+</body>
+<script type="text/javascript">
+(function (doc, win) {
+    const docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            let clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            // 如果小于320不在缩小
+            clientWidth = clientWidth < 320 ? 320 : clientWidth
+            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window)
+</script>
 </html>
