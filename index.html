@@ -117,20 +117,50 @@ li:hover ~ li::after {
     height: 1.5rem;
     display: left;
     font-size: 0.28rem;
+    margin-top: 0.36rem;
     text-align: left;
 }
 
-.content .content-goods .item p:first-of-type {
-    margin-top: 0.36rem;
+.content .content-goods .item .label {
+    width: 1rem;
+    height: 0.4rem;
+    line-height: -0.2rem;
+    text-align: center;
+    font-size: 0.24rem;
+    margin-top: 0.5rem;
+    margin-left: 1.2rem;
+    box-sizing: border-box;
+    background: #e3adad;
+    border-style: solid;
+    border-radius: 0.05rem;
+    border-color: rgb(211, 57, 57);
+}
+
+#p3 {
+    color: rgb(211, 57, 57);
+}
+
+.content .content-goods .item .label .p {
+    font-size: 0.24rem;
+    color: rgb(211, 57, 57);
+    box-sizing: border-box;
+    background: #e3adad;
+    border-radius: 0.05rem;
+    border-color:rgb(211, 57, 57);
+}
+
+#p1 {
     color: rgba(0, 0, 0, 0.85);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.content .content-goods .item p:last-of-type {
-    margin-top: 0.12rem;
+#p2 {
     color: #3642FF;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* 如果设备像素大于等于2，则用2倍图 */
@@ -184,8 +214,11 @@ screen and (min--moz-device-pixel-ratio: 3) {
                 <img src="./imgs/backz@2x.png" srcset="./imgs/backz@2x.png 2x,./imgs/backz@3x.png 3x">
             </div>
             <div class="text">
-                <p>Galaxy Z系列 5折券</p>
-                <p>50积分</p>
+                <p><span id="p1">Galaxy Z系列 5折券</span></p>
+                <p><span id="p2">50积分</span></p>
+            </div>
+            <div class="label">
+                <p><span id="p3">待付款</span></p>
             </div>
         </div>
         <div class="item">
@@ -193,8 +226,8 @@ screen and (min--moz-device-pixel-ratio: 3) {
                 <img src="./imgs/phone@2x.png" srcset="./imgs/phone@2x.png 2x,./imgs/phone@3x.png 3x">
             </div>
             <div class="text">
-                <p>Galaxy Note20系列</p>
-                <p>50积分</p>
+                <p><span id="p1">Galaxy Note20系列</span></p>
+                <p><span id="p2">50积分</span></p>
             </div>
         </div>
         <div class="item">
@@ -202,8 +235,8 @@ screen and (min--moz-device-pixel-ratio: 3) {
                 <img src="./imgs/backz@2x.png" srcset="./imgs/backz@2x.png 2x,./imgs/backz@3x.png 3x">
             </div>
             <div class="text">
-                <p>Galaxy Z系列 5折券</p>
-                <p>50积分</p>
+                <p><span id="p1">Galaxy Z系列 5折券</span></p>
+                <p><span id="p2">50积分</span></p>
             </div>
         </div>
         <div class="item">
@@ -211,8 +244,8 @@ screen and (min--moz-device-pixel-ratio: 3) {
                 <img src="./imgs/backz@2x.png" srcset="./imgs/backz@2x.png 2x,./imgs/backz@3x.png 3x">
             </div>
             <div class="text">
-                <p>Galaxy Z系列 5折券</p>
-                <p>50积分</p>
+                <p><span id="p1">Galaxy Z系列 5折券</span></p>
+                <p><span id="p2">50积分</span></p>
             </div>
         </div>
         <div class="item">
@@ -220,8 +253,8 @@ screen and (min--moz-device-pixel-ratio: 3) {
                 <img src="./imgs/backz@2x.png" srcset="./imgs/backz@2x.png 2x,./imgs/backz@3x.png 3x">
             </div>
             <div class="text">
-                <p>Galaxy Z系列 5折券</p>
-                <p>50积分</p>
+                <p><span id="p1">Galaxy Z系列 5折券</span></p>
+                <p><span id="p2">50积分</span></p>
             </div>
         </div>
     </div>
