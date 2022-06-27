@@ -95,6 +95,34 @@ body {
 .content .content-goods .item .unit p {
     font-size: 28px;
 }
+
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    background: #FFFFFF;
+    box-shadow: 0px -1px 8px 0px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.footer div p {
+    text-align: center;
+    font-size: 24px;
+    color: #000000;
+}
+
+.footer div.active p {
+    color: #3642FF;
+}
 -->
 </style>
 <header class="header">
@@ -168,5 +196,21 @@ body {
     </div>
 </main>
 <footer class="footer">
+    <div class="active">
+        <img src="./imgs/Icon-home@2x.png">
+        <p>首页</p>
+    </div>
+    <div>
+        <img src="./imgs/Icon-other@2x.png">
+        <p>分类</p>
+    </div>
+    <div>
+        <img src="./imgs/Icon-other@2x(1).png">
+        <p>订单</p>
+    </div>
+    <div>
+        <img src="./imgs/Icon-other@2x(2).png">
+        <p>我的</p>
+    </div>
 </footer>
 </html>
